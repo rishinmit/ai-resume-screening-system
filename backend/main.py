@@ -9,7 +9,8 @@ from utils import extract_text
 
 app = FastAPI()
 
-app.mount("/files", StaticFiles(directory="temp"), name="files")
+# app.mount("/files", StaticFiles(directory="temp"), name="files")
+app.mount("/static", StaticFiles(directory="../frontend"), name="static")
 
 app.add_middleware(
     CORSMiddleware,
@@ -68,3 +69,8 @@ async def rank_resumes(jd: UploadFile, resumes: list[UploadFile], top_n: int = F
         "ranking": flat,
         "resumes": resume_names
     }
+from fastapi.responses import FileResponse
+
+@app.get("/")
+def home():
+    return FileResponse("../frontend/index.html")
