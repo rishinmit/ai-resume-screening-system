@@ -1,4 +1,4 @@
-const API_URL = "https://your-backend.onrender.com";
+const API_URL = "https://ai-resume-screening-system-48an.onrender.com";
 async function uploadFiles(event){
 
 if(event) event.preventDefault();
