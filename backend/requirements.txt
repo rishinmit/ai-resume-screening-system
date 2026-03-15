@@ -1,0 +1,8 @@
+fastapi
+uvicorn
+sentence-transformers
+scikit-learn
+pdfplumber
+python-docx
+python-multipart
+numpy==1.26.4

@@ -1,0 +1,306 @@
+body{
+font-family:"Inter","Segoe UI",Arial;
+background:#F5F5F4;
+margin:0;
+text-align:center;
+color:#1F2937;
+}
+
+/* HEADER */
+
+.header{
+background:linear-gradient(135deg,#7C3AED,#F59E0B);
+color:white;
+padding:45px;
+}
+
+.header h1{
+margin:0;
+font-size:36px;
+letter-spacing:.5px;
+}
+
+.header p{
+margin-top:10px;
+opacity:.9;
+}
+
+/* UPLOAD BOX */
+
+.upload-box{
+background:white;
+width:420px;
+margin:40px auto;
+padding:30px;
+border-radius:14px;
+box-shadow:0 10px 30px rgba(0,0,0,0.08);
+transition:all .25s ease;
+}
+
+.upload-box:hover{
+transform:translateY(-6px);
+}
+
+.upload-box input{
+display:block;
+margin:10px auto 20px auto;
+}
+
+/* BUTTON */
+
+button{
+background:#7C3AED;
+color:white;
+padding:12px 22px;
+border:none;
+border-radius:10px;
+font-size:16px;
+cursor:pointer;
+transition:all .25s ease;
+}
+
+button:hover{
+transform:translateY(-3px);
+box-shadow:0 6px 20px rgba(0,0,0,.15);
+background:#6D28D9;
+}
+
+/* LOADING */
+
+.loading{
+margin-top:40px;
+}
+
+.loader{
+border:6px solid #e7e5e4;
+border-top:6px solid #7C3AED;
+border-radius:50%;
+width:40px;
+height:40px;
+animation:spin 1s linear infinite;
+margin:auto;
+}
+
+@keyframes spin{
+0%{transform:rotate(0deg);}
+100%{transform:rotate(360deg);}
+}
+
+/* STATS */
+
+.stats{
+display:flex;
+justify-content:center;
+gap:20px;
+margin:40px auto;
+}
+
+.stat-card{
+background:white;
+padding:20px;
+width:170px;
+border-radius:12px;
+box-shadow:0 6px 20px rgba(0,0,0,.08);
+transition:all .2s ease;
+}
+
+.stat-card:hover{
+transform:translateY(-5px);
+}
+
+.stat-card h3{
+margin:0;
+font-size:28px;
+color:#7C3AED;
+}
+
+/* TOP CANDIDATE */
+
+.top-candidate{
+background:#FFF7ED;
+width:650px;
+margin:30px auto;
+padding:25px;
+border-radius:14px;
+border:2px solid #F59E0B;
+box-shadow:0 8px 25px rgba(0,0,0,.08);
+}
+
+/* RESULT CARDS */
+
+.card{
+background:white;
+width:650px;
+margin:20px auto;
+padding:22px;
+border-radius:14px;
+box-shadow:0 10px 30px rgba(0,0,0,.08);
+transition:all .25s ease;
+}
+
+.card:hover{
+transform:translateY(-8px);
+box-shadow:0 14px 35px rgba(0,0,0,.12);
+}
+
+/* SCORE BAR */
+
+.score-bar{
+height:10px;
+background:#e7e5e4;
+border-radius:10px;
+overflow:hidden;
+margin:10px 0;
+}
+
+.score-fill{
+height:100%;
+background:linear-gradient(90deg,#7C3AED,#F59E0B);
+transition:width 1s ease;
+}
+
+/* SKILLS */
+
+.skills span{
+display:inline-block;
+margin:6px;
+padding:6px 14px;
+border-radius:20px;
+font-size:13px;
+font-weight:500;
+transition:all .15s ease;
+}
+
+.skills span:hover{
+transform:scale(1.1);
+}
+
+/* MATCHED */
+
+.matched span{
+background:#D1FAE5;
+color:#065F46;
+}
+
+/* MISSING */
+
+.missing span{
+background:#FEE2E2;
+color:#7F1D1D;
+}
+
+/* LINKS */
+
+a{
+color:#7C3AED;
+text-decoration:none;
+font-weight:600;
+}
+
+a:hover{
+text-decoration:underline;
+}
+
+/* ML SECTION */
+
+.ml-section{
+width:900px;
+margin:60px auto;
+}
+
+.ml-cards{
+display:grid;
+grid-template-columns:repeat(2,1fr);
+gap:20px;
+}
+
+.ml-card{
+background:white;
+padding:22px;
+border-radius:14px;
+box-shadow:0 8px 25px rgba(0,0,0,0.08);
+transition:all .2s ease;
+}
+
+.ml-card:hover{
+transform:translateY(-6px);
+}
+
+.ml-card h3{
+color:#7C3AED;
+}
+
+/* PROCESS FLOW */
+
+.process-section{
+width:1000px;
+margin:60px auto;
+}
+
+.process-flow{
+display:flex;
+justify-content:center;
+align-items:center;
+flex-wrap:wrap;
+gap:10px;
+}
+
+.step{
+background:white;
+padding:12px 20px;
+border-radius:10px;
+box-shadow:0 4px 15px rgba(0,0,0,0.08);
+}
+
+.arrow{
+font-size:22px;
+color:#7C3AED;
+}
+/* PROJECT CREDITS */
+
+.credits-section{
+
+width:900px;
+margin:80px auto;
+text-align:center;
+
+}
+
+.credits-section h2{
+
+margin-bottom:25px;
+font-size:28px;
+
+}
+
+.credits-card{
+
+background:white;
+padding:35px;
+border-radius:16px;
+box-shadow:0 10px 30px rgba(0,0,0,0.08);
+line-height:1.7;
+transition:transform .25s ease;
+
+}
+
+.credits-card:hover{
+
+transform:translateY(-6px);
+
+}
+
+.project-title{
+
+font-size:22px;
+font-weight:600;
+margin-bottom:15px;
+
+}
+
+.credits-text{
+
+font-size:16px;
+margin-bottom:10px;
+
+}

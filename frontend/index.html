@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+<meta charset="UTF-8">
+<title>AI Resume Screening System</title>
+<link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<div class="header">
+<h1>AI Resume Screening System</h1>
+<p>Rank candidates automatically using AI</p>
+</div>
+
+<div class="upload-box">
+
+<label>Upload Job Description</label>
+<input type="file" id="jd">
+
+<label>Upload Resumes</label>
+<input type="file" id="resumes" multiple>
+
+<button type="button" onclick="uploadFiles(event)">Analyze Resumes</button>
+
+</div>
+
+<!-- AI MODEL SECTION -->
+
+<div class="ml-section">
+
+<h2>🤖 Machine Learning Model Used</h2>
+
+<div class="ml-cards">
+
+<div class="ml-card">
+<h3>Model</h3>
+<p>Sentence-BERT (all-MiniLM-L6-v2)</p>
+<p>Used to convert text into semantic embeddings.</p>
+</div>
+
+<div class="ml-card">
+<h3>Algorithm</h3>
+<p>Cosine Similarity</p>
+<p>Measures similarity between resume and job description embeddings.</p>
+</div>
+
+<div class="ml-card">
+<h3>Skill Matching</h3>
+<p>Extract skills from JD and resume and compute match percentage.</p>
+</div>
+
+<div class="ml-card">
+<h3>Final Score</h3>
+<p>Final Score = 0.7 × Semantic Similarity + 0.3 × Skill Match</p>
+</div>
+
+</div>
+
+</div>
+
+<!-- PROCESS FLOW -->
+
+<div class="process-section">
+
+<h2>⚙️ How the AI Ranking Works</h2>
+
+<div class="process-flow">
+
+<div class="step">1️⃣ Resume Upload</div>
+<div class="arrow">→</div>
+
+<div class="step">2️⃣ Text Extraction</div>
+<div class="arrow">→</div>
+
+<div class="step">3️⃣ AI Embedding</div>
+<div class="arrow">→</div>
+
+<div class="step">4️⃣ Similarity Calculation</div>
+<div class="arrow">→</div>
+
+<div class="step">5️⃣ Skill Matching</div>
+<div class="arrow">→</div>
+
+<div class="step">6️⃣ Candidate Ranking</div>
+
+</div>
+
+</div>
+
+<div id="results"></div>
+<!-- PROJECT CREDITS SECTION -->
+
+<div class="credits-section">
+
+<h2>📘 Project Information</h2>
+
+<div class="credits-card">
+
+<p class="project-title">
+AI Resume Screening System
+</p>
+
+<p class="credits-text">
+This project was developed by
+<strong>Rishi Raj (USN: 1NT22IS137)</strong>
+and
+<strong>Sajid Raza (USN: 1NT22IS144)</strong>
+as part of the in-house internship.
+</p>
+
+<p class="credits-text">
+The project was completed under the guidance of
+<strong>Dr. Deepak Raj</strong>,
+Associate Professor,
+Department of Information Science and Engineering,
+NMIT, Yelahanka.
+</p>
+
+</div>
+
+</div>
+<script src="script.js"></script>
+
+</body>
+</html>
