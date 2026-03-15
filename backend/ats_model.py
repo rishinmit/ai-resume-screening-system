@@ -7,12 +7,9 @@ class ResumeATS:
 
     def __init__(self):
 
-        print("Loading local AI model...")
+        print("Loading AI model...")
 
-        BASE_DIR = os.path.dirname(os.path.abspath(__file__))
-        MODEL_PATH = os.path.join(BASE_DIR, "models", "models", "ats_model")
-
-        self.model = SentenceTransformer(MODEL_PATH)
+        self.model = SentenceTransformer("all-MiniLM-L6-v2")
 
         print("Model loaded successfully!")
 
