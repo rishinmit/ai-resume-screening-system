@@ -25,14 +25,22 @@ def get_model():
 # app.mount("/files", StaticFiles(directory="temp"), name="files")
 app.mount("/static", StaticFiles(directory="../frontend"), name="static")
 
+# app.add_middleware(
+#     CORSMiddleware,
+#     allow_origins=["*"],
+#     allow_credentials=True,
+#     allow_methods=["*"],
+#     allow_headers=["*"],
+# )
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["*"],
+    allow_origins=[
+        "https://ai-resume-screening-system-mzw913dsb.vercel.app"
+    ],
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
 )
-
 ats = None
 
 
