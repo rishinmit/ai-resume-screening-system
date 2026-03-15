@@ -21,7 +21,8 @@ for(let i=0;i<resumeFiles.length;i++){
 formData.append("resumes",resumeFiles[i]);
 }
 
-const response=await fetch("http://localhost:8000/rank-resumes",{
+// const response=await fetch("http://localhost:8000/rank-resumes",{
+const response=await fetch("rank-resumes",{
 method:"POST",
 body:formData
 });
@@ -73,14 +74,15 @@ html += `
 /* TOP CANDIDATE */
 
 const best=ranking[0];
-
+{/* <a href="http://localhost:8000/files/${names[best.resume_id]}" target="_blank"></a> */}
 html+=`
 <div class="top-candidate">
 
 <h2>⭐ Top Candidate</h2>
 
 <p>
-<a href="http://localhost:8000/files/${names[best.resume_id]}" target="_blank">
+
+<a href="files/${names[best.resume_id]}" target="_blank">
 ${names[best.resume_id]}
 </a>
 </p>
