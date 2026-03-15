@@ -74,15 +74,15 @@ html += `
 /* TOP CANDIDATE */
 
 const best=ranking[0];
-{/* <a href="http://localhost:8000/files/${names[best.resume_id]}" target="_blank"></a> */}
+{/* <a href="files/${names[best.resume_id]}" target="_blank"></a> */}
 html+=`
 <div class="top-candidate">
 
 <h2>⭐ Top Candidate</h2>
 
 <p>
+<a href="http://localhost:8000/files/${names[best.resume_id]}" target="_blank"></a>
 
-<a href="files/${names[best.resume_id]}" target="_blank">
 ${names[best.resume_id]}
 </a>
 </p>
@@ -99,14 +99,15 @@ ${names[best.resume_id]}
 /* CARDS */
 
 ranking.forEach((item,index)=>{
-{/* <a href="http://localhost:8000/files/${names[item.resume_id]}" target="_blank"></a> */}
+{/* <a href="files/${names[item.resume_id]}" target="_blank"></a> */}
 html+=`
 
 <div class="card">
 
 <h3>
 Rank ${index+1} —
-<a href="files/${names[item.resume_id]}" target="_blank">
+
+<a href="http://localhost:8000/files/${names[item.resume_id]}" target="_blank"></a>
 ${names[item.resume_id]}
 </a>
 </h3>
