@@ -9,12 +9,19 @@ from utils import extract_text
 
 app = FastAPI()
 
+# ats = None
+
+# @app.on_event("startup")
+# def load_model():
+#     global ats
+#     ats = ResumeATS()
 ats = None
 
-@app.on_event("startup")
-def load_model():
+def get_model():
     global ats
-    ats = ResumeATS()
+    if ats is None:
+        ats = ResumeATS()
+    return ats
 # app.mount("/files", StaticFiles(directory="temp"), name="files")
 app.mount("/static", StaticFiles(directory="../frontend"), name="static")
 
@@ -56,7 +63,9 @@ async def rank_resumes(jd: UploadFile, resumes: list[UploadFile], top_n: int = F
         resume_texts.append(text)
         resume_names.append(resume.filename)
 
-    ranking = ats.rank_resumes(jd_text, resume_texts)
+    # ranking = ats.rank_resumes(jd_text, resume_texts)
+    model = get_model()
+    ranking = model.rank_resumes(jd_text, resume_texts)
 
     # FLATTEN RESULTS
 
