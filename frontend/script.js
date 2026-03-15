@@ -22,7 +22,7 @@ formData.append("resumes",resumeFiles[i]);
 }
 
 // const response=await fetch("http://localhost:8000/rank-resumes",{
-const response=await fetch("rank-resumes",{
+const response = await fetch("rank-resumes",{
 method:"POST",
 body:formData
 });
@@ -74,15 +74,16 @@ html += `
 /* TOP CANDIDATE */
 
 const best=ranking[0];
-{/* <a href="files/${names[best.resume_id]}" target="_blank"></a> */}
+
+{/* <a href="http://localhost:8000/files/${names[best.resume_id]}" target="_blank"></a> */}
 html+=`
 <div class="top-candidate">
 
 <h2>⭐ Top Candidate</h2>
 
 <p>
-<a href="http://localhost:8000/files/${names[best.resume_id]}" target="_blank"></a>
 
+<a href="/files/${names[best.resume_id]}" target="_blank">
 ${names[best.resume_id]}
 </a>
 </p>
@@ -97,9 +98,9 @@ ${names[best.resume_id]}
 `;
 
 /* CARDS */
-
+{/* <a href="http://localhost:8000/files/${names[item.resume_id]}" target="_blank"></a> */}
 ranking.forEach((item,index)=>{
-{/* <a href="files/${names[item.resume_id]}" target="_blank"></a> */}
+
 html+=`
 
 <div class="card">
@@ -107,7 +108,7 @@ html+=`
 <h3>
 Rank ${index+1} —
 
-<a href="http://localhost:8000/files/${names[item.resume_id]}" target="_blank"></a>
+<a href="/files/${names[item.resume_id]}" target="_blank">
 ${names[item.resume_id]}
 </a>
 </h3>
