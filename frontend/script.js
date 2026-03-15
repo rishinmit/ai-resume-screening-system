@@ -1,3 +1,4 @@
+const API_URL = "https://your-backend.onrender.com";
 async function uploadFiles(event){
 
 if(event) event.preventDefault();
@@ -22,7 +23,7 @@ formData.append("resumes",resumeFiles[i]);
 }
 
 // const response=await fetch("http://localhost:8000/rank-resumes",{
-const response = await fetch("rank-resumes",{
+const response = await fetch(`${API_URL}/rank-resumes`,{
 method:"POST",
 body:formData
 });
@@ -83,7 +84,7 @@ html+=`
 
 <p>
 
-<a href="/files/${names[best.resume_id]}" target="_blank">
+<a href="${API_URL}/files/${names[best.resume_id]}" target="_blank">
 ${names[best.resume_id]}
 </a>
 </p>
@@ -108,7 +109,7 @@ html+=`
 <h3>
 Rank ${index+1} —
 
-<a href="/files/${names[item.resume_id]}" target="_blank">
+<a href="${API_URL}/files/${names[item.resume_id]}" target="_blank">
 ${names[item.resume_id]}
 </a>
 </h3>
