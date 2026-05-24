@@ -1,9 +1,10 @@
 fastapi
 uvicorn
-sentence-transformers
+sentence-transformers==2.7.0
+transformers==4.41.2
 scikit-learn
 pdfplumber
 python-docx
 python-multipart
-numpy
+numpy<2
 torch --index-url https://download.pytorch.org/whl/cpu

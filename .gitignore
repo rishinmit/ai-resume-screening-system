@@ -1,0 +1,13 @@
+backend/__pycache__
+backend/temp
+temp/
+JD
+resumes
+resume_ats_setup_guide.pdf
+Resume_Screening_System.pdf
+backend/models
+/Users/rishiraj/Rishi Raj/College Internship/Project/backend/models
+venv/
+.venv/
+.venv311/
+.DS_Store

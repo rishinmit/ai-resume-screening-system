@@ -1,19 +1,46 @@
-const API_URL = "https://ai-resume-screening-system-48an.onrender.com";
+const API_URL = "http://127.0.0.1:8000";
+
+function openAndDownloadResume(filename){
+const encodedName = encodeURIComponent(filename);
+window.open(`${API_URL}/files/${encodedName}`, "_blank");
+
+const downloadLink = document.createElement("a");
+downloadLink.href = `${API_URL}/download/${encodedName}`;
+downloadLink.download = filename;
+downloadLink.style.display = "none";
+document.body.appendChild(downloadLink);
+downloadLink.click();
+downloadLink.remove();
+}
+
 async function uploadFiles(event){
 
 if(event) event.preventDefault();
 
 try{
+const resultsEl = document.getElementById("results");
+const button = document.querySelector("button");
+const jdFile=document.getElementById("jd").files[0];
+const resumeFiles=document.getElementById("resumes").files;
 
-document.getElementById("results").innerHTML = `
+if(!jdFile){
+resultsEl.innerHTML = `<div class="card"><p>Please select a job description file.</p></div>`;
+return;
+}
+
+if(!resumeFiles || resumeFiles.length === 0){
+resultsEl.innerHTML = `<div class="card"><p>Please select at least one resume file.</p></div>`;
+return;
+}
+
+resultsEl.innerHTML = `
 <div class="loading">
 <div class="loader"></div>
 <p>Analyzing resumes with AI...</p>
 </div>
 `;
-
-const jdFile=document.getElementById("jd").files[0];
-const resumeFiles=document.getElementById("resumes").files;
+resultsEl.scrollIntoView({ behavior: "smooth", block: "start" });
+if(button) button.disabled = true;
 
 const formData=new FormData();
 formData.append("jd",jdFile);
@@ -28,13 +55,27 @@ method:"POST",
 body:formData
 });
 
+if(!response.ok){
+throw new Error(`Backend returned ${response.status}`);
+}
+
 const data=await response.json();
+console.log("Resume ranking response:", data);
 
 displayResults(data);
 
 }catch(error){
 console.error(error);
-alert("Error occurred.");
+document.getElementById("results").innerHTML = `
+<div class="card">
+<h3>Analysis failed</h3>
+<p>Make sure the backend is running at ${API_URL} and try again.</p>
+<p>${error.message}</p>
+</div>
+`;
+}finally{
+const button = document.querySelector("button");
+if(button) button.disabled = false;
 }
 
 }
@@ -44,6 +85,16 @@ function displayResults(data){
 
 const ranking=data.ranking;
 const names=data.resumes;
+
+if(!ranking || ranking.length === 0){
+document.getElementById("results").innerHTML = `
+<div class="card">
+<h3>No results found</h3>
+<p>The backend did not return any ranked resumes.</p>
+</div>
+`;
+return;
+}
 
 let html="";
 
@@ -84,7 +135,7 @@ html+=`
 
 <p>
 
-<a href="${API_URL}/files/${names[best.resume_id]}" target="_blank">
+<a href="#" onclick="openAndDownloadResume('${names[best.resume_id].replace(/'/g, "\\'")}'); return false;">
 ${names[best.resume_id]}
 </a>
 </p>
@@ -109,7 +160,7 @@ html+=`
 <h3>
 Rank ${index+1} —
 
-<a href="${API_URL}/files/${names[item.resume_id]}" target="_blank">
+<a href="#" onclick="openAndDownloadResume('${names[item.resume_id].replace(/'/g, "\\'")}'); return false;">
 ${names[item.resume_id]}
 </a>
 </h3>
@@ -139,5 +190,6 @@ ${(item.missing_skills||[]).map(s=>`<span>${s}</span>`).join("")}
 });
 
 document.getElementById("results").innerHTML=html;
+document.getElementById("results").scrollIntoView({ behavior: "smooth", block: "start" });
 
 }
